@@ -1,0 +1,20 @@
+.home-banner{
+    background: url('banner_from_home_page.jpg');
+    width: 100%;
+    height: 600px;
+}
+
+
+.banner_elements{
+    padding-left: 10%;
+    padding-top: 10%;
+    font-family: 'Booksman', Arial, sans-serif;
+    color: white;
+    font-size: 28px;
+}
+
+.card-element{
+
+    margin-right: 30px;
+}
+

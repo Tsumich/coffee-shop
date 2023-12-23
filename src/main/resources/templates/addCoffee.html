@@ -1,0 +1,54 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title>Добавить товар</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<header th:insert="blocks/head :: head"></header>
+    <form action="/admin/add/coffee" method="post" style="width:200px;margin:10px;">
+        <div class="form-group">
+            <label for="inputName">Название кофе</label>
+            <input type="text" name="name" class="form-control" id="inputName" aria-describedby="emailHelp" placeholder="name">
+        </div>
+        <div class="form-group">
+            <label for="inputBrand">Бренд кофе</label>
+            <input type="text" name="brand" class="form-control" id="inputBrand" placeholder="brand">
+        </div>
+        <div class="form-group">
+            <label for="inputPrice">Цена</label>
+            <input type="text" name="price" class="form-control" id="inputPrice" placeholder="price">
+        </div>
+        <div class="form-check form-switch">
+            <input class="form-check-input" name="isSale" type="checkbox" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Есть скидка?</label>
+        </div>
+        <div class="form-group">
+            <label for="inputDescription">Описание</label>
+            <input type="text" name="description" class="form-control" id="inputDescription" placeholder="description">
+        </div>
+        <div class="form-group">
+            <label for="inputWeight">Вес</label>
+            <input type="text" name="weight" class="form-control" id="inputWeight" placeholder="Weight">
+        </div>
+        <select class="form-select" aria-label="Default select example" name="category">
+            <option selected>Кофе растворимый</option>
+            <option value="1">Кофе в зёрнах</option>
+            <option value="2">Кофе молотый</option>
+            <option value="3">Кофе в капсулах</option>
+        </select>
+        <div class="form-group">
+            <label for="inputPic">Название кофе на англ</label>
+            <input type="text" name="imgPath" class="form-control" id="inputPic" placeholder="Pic">
+        </div>
+        <div class="form-group">
+            <label for="inputNewPrice">Новая цена</label>
+            <input type="text" name="newPrice" class="form-control" id="inputNewPrice" placeholder="NewPrice">
+        </div>
+        <button type="submit" class="btn btn-primary">Добавить товар</button>
+    </form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

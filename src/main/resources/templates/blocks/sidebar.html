@@ -1,0 +1,8 @@
+
+<div th:fragment="coffee-checkbox-category(category)" class="checkbox">
+    <label>
+        <button type="submit" class="btn btn-outline-primary" name="cat" th:value="${category}"> </button>
+        <span class="cr"><i class="cr-icon fas fa-check"></i></span>
+        <th:block th:text="${category}"></th:block>
+    </label>
+</div>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <header th:insert="blocks/head :: head"></header>
+
+    <div style="float: left; width:230px; margin-left:10px;">
+        <div class="sidebar-header">
+            <h3>Виды кофе</h3>
+        </div>
+        <form action="/catalog/coffees" method="get">
+            <ul class="list-unstyled">
+                <li th:insert="blocks/sidebar :: coffee-checkbox-category('Кофе растворимый')"></li>
+                <li th:insert="blocks/sidebar :: coffee-checkbox-category('Кофе в зёрнах')"></li>
+                <li th:insert="blocks/sidebar :: coffee-checkbox-category('Кофе в капсулах')"></li>
+                <li th:insert="blocks/sidebar :: coffee-checkbox-category('Кофе молотый')"></li>
+            </ul>
+        </form>
+        <form action="/catalog" method="get">
+            <button class="btn btn-primary" type="submit">All</button>
+        </form>
+    </div>
+
+
+    <div style="float: right;width:1250px">
+        <h2 th:text="${title_2}"></h2>
+        <div class="card-group m-2" >
+            <div th:each="coffee : ${coffeeList}" style="height:300px;" >
+                <div class="card" style="width:350px; margin:10px;">
+                    <div class="card-body" >
+                        <img th:src="@{'/images/'+${coffee.brand}+'_'+${coffee.imgPath}+'.png'}"
+                             width="30%" height="150px"/>
+                        <img th:unless="@{'/images/'+${coffee.brand}+'_'+${coffee.imgPath}+'.jpg'}"
+                             width="30%" height="150px"/>
+                        <h5 class="card-title" th:text="${coffee.brand}+' '+${coffee.name}"></h5>
+                        <p class="card-text" th:text="${coffee.category}"></p>
+                        <div class="card-group m-2" >
+                            <a th:href="@{'/catalog/coffee/'+${coffee.id}}" class="btn btn-primary">Попробовать</a>
+                            <p th:text="${coffee.price}+' руб'" style="width:150px;  margin:10px;text-align:right;" th:if="not ${coffee.isSale}"></p>
+                            <strike th:text="${coffee.price}+' руб'" style="width:150px;  margin:10px;text-align:right;" th:if="${coffee.isSale}"></strike>
+                            <p th:text="${coffee.newPrice}+' руб'" style="width:150px;  margin:10px;text-align:right;" th:if="${coffee.isSale}"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
